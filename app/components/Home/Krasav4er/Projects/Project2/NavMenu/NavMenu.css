@@ -1,0 +1,23 @@
+.block-nav-menu {
+  width: auto;
+  height: 50px;
+  border: 1px solid #000;
+  margin-top: 5px;
+  margin-left: 35px;
+  margin-right: 35px;
+  margin-bottom: 5px;
+}
+.block-nav-menu ul {
+  background-color: #fff;
+  text-align: center;
+  display: inline;
+}
+.block-nav-menu ul li {
+  background-color: #f00;
+  float: left;
+  display: inline-block;
+  padding: 5px 10px;
+  margin-left: 25px;
+  margin-top: 6px;
+  border: 1px solid #000;
+}
