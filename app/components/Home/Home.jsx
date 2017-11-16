@@ -7,6 +7,7 @@ class Home extends Component {
     return (
       <div id='home'>
         <Link to={'/html/Krasav4er'}>krasav4er</Link><br /><br />
+        <Link to={'/html/DarinkaP'}>DarinkaP</Link><br /><br />
       </div>
     )
   }

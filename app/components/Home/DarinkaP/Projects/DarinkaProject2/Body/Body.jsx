@@ -11,8 +11,10 @@ class Body extends Component {
 			</div>
     	</div>
 		<div className='game'>
-			<a href='#' className='create'>СТВОРИТИ ГРУ</a>
-			<a href='#' className='play'>ДОЛУЧИТИСЬ ДО ГРИ</a>
+			<div className='game-inner'>
+				<a href='#' className='create'>СТВОРИТИ ГРУ</a>
+				<a href='#' className='play'>ДОЛУЧИТИСЬ ДО ГРИ</a>
+			</div>
 		</div>
     </div>
     )
