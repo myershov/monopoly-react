@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
 import Header from './Header/Header.jsx'
-import Footer from './Footer/Footer.jsx'
 import Body from './Body/Body.jsx'
-import './Project1.styl'
+import './Dashboard.styl'
 
-class Project1 extends Component {
+class Dashboard extends Component {
   render () {
     return (
-      <div>
+      <div className='monopoly-app'>
         <Header />
         <Body />
-        <Footer />
       </div>
     )
   }
 }
-export default Project1
+export default Dashboard
