@@ -13,7 +13,7 @@ ReactDOM.render(
       <Header />
       <Route exact path='/' component={Home} />
       <Route exact path='/dashboard' component={Dashboard} />
-      <Route exact path='/dashboard/type' component={Type} />
+      <Route exact path='/type' component={Type} />
     </div>
   </Router>,
   document.getElementById('root')
