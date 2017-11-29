@@ -12,7 +12,7 @@ class Body extends Component {
         </div>
         <div className='game'>
           <div className='game-inner'>
-            <a href='#' className='create'>СТВОРИТИ ГРУ</a>
+            <a href='#/dashboard/type' className='create'>СТВОРИТИ ГРУ</a>
             <a href='#' className='play'>ДОЛУЧИТИСЬ ДО ГРИ</a>
           </div>
         </div>
