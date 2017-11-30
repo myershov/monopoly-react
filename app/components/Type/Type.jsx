@@ -5,7 +5,7 @@ import './Type.styl'
 class Type extends Component {
   render () {
     return (
-      <div className='monopoly-app'>
+      <div>
         <Body />
       </div>
     )
