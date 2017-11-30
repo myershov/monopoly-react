@@ -14,11 +14,8 @@ ReactDOM.render(
       <Header />
       <Route exact path='/' component={Home} />
       <Route exact path='/dashboard' component={Dashboard} />
-<<<<<<< HEAD
       <Route exact path='/login' component={Login} />
-=======
       <Route exact path='/type' component={Type} />
->>>>>>> 489704707b3c5e75768e61d459492b3f3eb00929
     </div>
   </Router>,
   document.getElementById('root')
