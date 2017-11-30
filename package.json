@@ -6,7 +6,8 @@
   "license": "ISC",
   "author": "",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline --module-bind 'css=style!css'"
+    "start": "webpack-dev-server --hot --inline --module-bind 'css=style!css'",
+    "server": "npm start & cd server && node index.js"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
