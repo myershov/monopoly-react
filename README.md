@@ -6,7 +6,6 @@ npm i
 ```
 
 ```
-npm i
 npm run server (running with node)
 
 ```
