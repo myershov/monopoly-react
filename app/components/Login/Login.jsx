@@ -15,7 +15,7 @@ class Login extends Component {
               <input type='text' name='login' placeholder="Введіть ім'я гравця (Нікнейм)" />
               <input type='password' name='password' placeholder='Введіть адресу електронної пошти' />
               <fieldset>
-                <legend>або увійдітьза допомогою:</legend>
+                <legend>або увійдіть за допомогою:</legend>
                 <button type='button' className='play-button'>Facebook</button>
                 <button type='button' className='play-button'>Twitter</button>
               </fieldset>
