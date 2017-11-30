@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import Body from './Body/Body.jsx'
+import GameBoardCell from './GameBoardCell/GameBoardCell.jsx'
 import './GameBoard.styl'
 
 class GameBoard extends Component {
   render () {
     return (
       <div className='monopoly-app'>
-        <Body />
+        <GameBoardCell />
       </div>
     )
   }
