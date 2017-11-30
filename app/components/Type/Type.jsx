@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Body from './Body/Body.jsx'
-import './Dashboard.styl'
+import './Type.styl'
 
-class Dashboard extends Component {
+class Type extends Component {
   render () {
     return (
       <div className='monopoly-app'>
@@ -11,4 +11,4 @@ class Dashboard extends Component {
     )
   }
 }
-export default Dashboard
+export default Type
