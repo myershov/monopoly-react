@@ -1,13 +1,10 @@
-const path = require('path')
+// const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const statConf = {
-  assets: false,
-  chunks: false,
-  hash: false,
   version: false,
-  errors: true,
-  errorDetails: true,
-  warnings: true
+  modules: false,
+  assets: false,
+  hash: false
 }
 module.exports = {
   entry: ['babel-polyfill', './app/main.js'],
@@ -24,7 +21,7 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['es2015', 'react']
+              presets: [['env', {'modules': false}], 'stage-0', 'react']
             }
           }
         ]

@@ -4,7 +4,7 @@ import './Body.styl'
 class Body extends Component {
   render () {
     return (
-      <div className='monopoly-app'>
+      <div>
         <div className='monopoly-logo'>
           <div className='monopoly-logo-inner'>
             <img src='app/components/Type/Images/monopoly-brand.png' alt='Monopoly' />

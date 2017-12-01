@@ -6,10 +6,11 @@ class Home extends Component {
   render () {
     return (
       <div id='home'>
-        <Link to={'/dashboard'}>dashboard</Link><br /><br />
-        <Link to={'/login'}>login</Link><br /><br />
-        <Link to={'/gameboard'}>gameboard</Link><br /><br />
-        <Link to={'/type'}>type</Link><br /><br />
+        <Link to='/dashboard'>dashboard</Link><br /><br />
+        <Link to='/login'>login</Link><br /><br />
+        <Link to='/gameboard'>gameboard</Link><br /><br />
+        <Link to='/type'>type</Link><br /><br />
+        <Link to='/chat'>chat</Link><br /><br />
       </div>
     )
   }
