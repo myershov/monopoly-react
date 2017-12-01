@@ -14,9 +14,7 @@ class GameBoardCell extends Component {
   // </div>
   render () {
     return (
-      <div key={this.props.key} className={'gameboard-cell ' + this.props.orientation || ''}>
-        {this.props.text}
-      </div>
+      <div key={this.props.key} className={'gameboard-cell ' + this.props.orientation || ''}>{this.props.text}</div>
     )
   }
 }
