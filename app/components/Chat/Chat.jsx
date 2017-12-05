@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import io from 'socket.io-client'
 import './Chat.styl'
+import Users from './components/Users.jsx'
 
 const socket = io('http://localhost:8080')
 
@@ -34,6 +35,7 @@ class Chat extends Component {
         <div>
           {this.state.messages.map((i, key) => <div key={key}>{i}</div>)}
         </div>
+        <Users />
       </div>
     )
   }
