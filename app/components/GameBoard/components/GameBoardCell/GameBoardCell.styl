@@ -1,0 +1,153 @@
+.gameboard-cell
+  box-shadow inset 0px 0px 10px rgba(0,0,0,0.5)
+  &.main-block
+    width 150px
+    height 150px
+    background-color #c1c1c1
+    h4
+      position absolute
+      z-index 5
+    .player0
+      position relative
+      width 0
+      height 0
+      top 12px
+      left 12px
+      border-left 12px solid transparent
+      border-right 12px solid transparent
+      border-top 24px solid red
+    .player1
+      position relative
+      left 36px
+      top 12px
+      width 0
+      height 0
+      border-width 12px 12px 12px
+      border-style solid
+      border-color green green transparent
+    .player2
+      position relative
+      left 60px
+      top 12px
+      width 24px
+      height 24px
+      border-radius 50%
+      background-color blue
+    .player3
+      position relative
+      left 84px
+      top 12px
+      width 24px
+      height 24px
+      background-color black
+    .player4
+      position relative
+      left 108px
+      top 12px
+      width 0
+      height 0
+      border-left 12px solid transparent
+      border-right 12px solid transparent
+      border-bottom 24px solid yellow
+  &.gorizontal
+    width 50px
+    height 150px
+    background-color #8cf294
+    margin auto
+    display block
+    h4
+      position absolute
+      transform rotate(90deg)
+      margin-top 41px
+      margin-left -7px
+    .player0
+      position relative
+      left 12px
+      top 12px
+      width 0
+      height 0
+      border-left 12px solid transparent
+      border-right 12px solid transparent
+      border-top 24px solid red
+    .player1
+      position relative
+      left 12px
+      top 14px
+      width 0
+      height 0
+      border-width 12px 12px 12px
+      border-style solid
+      border-color green green transparent
+    .player2
+      position relative
+      left 12px
+      top 12px
+      width 24px
+      height 24px
+      border-radius 50%
+      background-color blue
+    .player3
+      position relative
+      left 12px
+      top 17px
+      width 24px
+      height 24px
+      background-color black
+    .player4
+      position relative
+      top 19px
+      left 12px
+      width 0
+      height 0
+      border-left 12px solid transparent
+      border-right 12px solid transparent
+      border-bottom 24px solid yellow
+  &.vertical
+    width 150px
+    height 50px
+    background-color #f2b3b3
+    display inline-flex
+    h4
+      position absolute
+    .player0
+      position relative
+      left 5px
+      top 13px
+      width 0
+      height 0
+      border-left 12px solid transparent
+      border-right 12px solid transparent
+      border-top 24px solid red
+    .player1
+      position relative
+      left 10px
+      top 13px
+      width 0
+      height 0
+      border-width 12px 12px 12px
+      border-style solid
+      border-color green green transparent
+    .player2
+      position relative
+      left 15px
+      top 13px
+      width 24px
+      height 24px
+      border-radius 50%
+      background-color blue
+    .player3
+      position relative
+      left 20px
+      top 13px
+      width 24px
+      height 24px
+      background-color black
+    .player4
+      position relative
+      left 25px
+      top 13px
+      width 0
+      height 0
+      border-left 12px solid transparent
+      border-right 12px solid transparent
+      border-bottom 24px solid yellow
