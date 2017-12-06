@@ -14,8 +14,8 @@ class GameBoardCell extends Component {
 }
 GameBoardCell.propTypes = {
   orientation: PropTypes.string,
-  players: PropTypes.object,
-  id: PropTypes.string,
+  players: PropTypes.array,
+  id: PropTypes.number,
   text: PropTypes.any
 }
 export default GameBoardCell

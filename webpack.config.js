@@ -1,10 +1,14 @@
-// const path = require('path')
+const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const statConf = {
   version: false,
   modules: false,
   assets: false,
   hash: false
+}
+const alias = {
+  // 'project-components': path.resolve('./components-lib'),
+  'project-services': path.resolve('./services')
 }
 module.exports = {
   entry: ['babel-polyfill', './app/main.js'],
@@ -45,5 +49,8 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('./dist/bundle.css')
-  ]
+  ],
+  resolve: {
+    alias
+  }
 }

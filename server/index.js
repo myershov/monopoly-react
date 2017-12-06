@@ -20,6 +20,6 @@ io.on('connection', socket => {
   require('./app/createGame.js').init(socket, io, gameInfo)
   require('./app/getGameList.js').init(socket, io, gameInfo)
 })
-
+require('./app/gameboard/gameboard.js').init(app)
 console.log('Running')
 http.listen(port)
