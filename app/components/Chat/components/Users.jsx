@@ -3,7 +3,7 @@ import './Users.styl'
 
 class Users extends Component {
   render () {
-    const newArr = ['Аліна Васильєва', 'Даша Сніжн', 'Даша Сніжнasdasd', 'asdasdsadsadasd qweqwe']
+    const newArr = ['Аліна Васильєва', 'Даша Сніжна', 'Віктор Морозов', 'Тетяна Антонова', 'Cтаніслав Васильченко']
     return (
       <div className='users-main'>
         <div className='users-header'>
@@ -16,7 +16,7 @@ class Users extends Component {
           <div className='users-body-inner'>
             <div className='counter'><strong>{newArr.length} людей в чаті</strong></div>
             <ul className='user'>
-              {newArr.map(i => <li><a href='#'>{i}</a></li>)}
+              {newArr.map((i, key) => <li key={key}><a href='#'>{i}</a></li>)}
             </ul>
           </div>
         </div>
