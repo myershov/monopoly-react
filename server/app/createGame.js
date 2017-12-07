@@ -1,7 +1,7 @@
-var exports = module.exports = {};
+var exports = module.exports = {}
 
-exports.init = function(socket, io, gameInfo) {
-    socket.on('create game', function(info) {
-        gameInfo.listOfGames.push(info);
-    });
-};
+exports.init = function (socket, io, gameInfo) {
+  socket.on('create game', function (info) {
+    gameInfo.listOfGames.push(info)
+  })
+}
