@@ -1,8 +1,9 @@
 .chatmain-main
   height 100%
-  max-width 78%
   border-top 1px solid #333
+  background-color #ffffff
   .chatmain-header
+    max-width 100%
     display flex
     height 59px
     flex-direction row
@@ -14,11 +15,14 @@
     padding-bottom 13px
     color black
   .chatmain-body
+    max-width 78%
     padding 0px
     ul
       list-style-type none
       padding 0px
       margin 0px
+      overflow auto
+      height 480px
       li
         display flex
         flex-wrap wrap
@@ -29,14 +33,48 @@
           background-color #333
           margin 9px 12px
         a
-          color black
+          color #9e9c9e
           font-family Helvetica Neue, Helvetica Arial, sans-serif
           font-size 15px
-          padding 17px 30px 17px 0px
+          margin 17px 0px
         .message
           color black
           font-family Helvetica Neue, Helvetica Arial, sans-serif
           font-size 15px
-          padding 17px 30px
+          margin 12px 17px
+          padding 5px
           overflow-wrap break-word
           max-width 78%
+    .message-line
+      display flex
+      position relative
+      padding 0px
+      margin 0px
+      width 100%
+      height 40px
+      background #e3e3e3
+      .user-icon
+        position absolute
+        height 30px
+        width 30px
+        border-radius 50%
+        background-color #333
+        margin 5px 14px
+      .users-message
+        position absolute
+        height 25px
+        width 84%
+        background-color #ffffff
+        border 1px solid #b7b7b7
+        top 7px
+        left 58px
+      .button
+        position absolute
+        height 25px
+        top 7px
+        right 19px
+        border 1px solid #b7b7b7
+        padding 1px 0px
+        text-align center
+        font-size 14px
+        width 9%

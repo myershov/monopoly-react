@@ -1,10 +1,15 @@
-import React, { Component } from 'react'
+import { usersService } from 'project-services'
 import Signup from '.././Signup/Signup.jsx'
+import React, { Component } from 'react'
 import './Login.styl'
 
 class Login extends Component {
-  logIn = (login, password) => {
-
+  logIn = ({login, password}) => {
+    login
+    password
+    usersService.login().then(res => {
+      res
+    })
   }
   render () {
     return (
