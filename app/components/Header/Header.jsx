@@ -13,8 +13,8 @@ class Header extends Component {
             </div>
           </div>
           <div className='header-user-form'>
-            <a href='#' className='sing-in'>Увійти</a>
-            <a href='#' className='sing-up'>Реєстрація</a>
+            <a href='#/login' className='sing-in'>Увійти</a>
+            <a href='#/signup' className='sing-up'>Реєстрація</a>
             <a href='#' className='social-media-facebook'>
               <img src='https://digiday.com/wp-content/themes/digiday/static/images/icon_social_facebook-white.svg' alt='Facebook' />
             </a>

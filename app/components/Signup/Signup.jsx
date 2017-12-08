@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './Login.styl'
+import './Signup.styl'
 
-class Login extends Component {
+class Signup extends Component {
   render () {
     return (
       <div id='login' className='form__login'>
@@ -10,9 +10,10 @@ class Login extends Component {
           <div className='form__wrap'>
             <img src='app/components/Login/Images/logo.png' className='logo' alt='logo monopoly' />
             <div className='form__body'>
-              <h2 className='form__text'>Увійти</h2>
-              <input type='text' name='login' required placeholder="Введіть ім'я гравця (Логін)" />
-              <input type='text' name='password' required placeholder='Введіть пароль' />
+              <h2 className='form__text'>Реєстрація Профілю</h2>
+              <input type='text' name='username' required placeholder="Введіть ваше ім'я" />
+              <input type='text' name='login' required placeholder="Введіть ім'я гравця (Нікнейм)" />
+              <input type='email' name='email' required placeholder='Введіть адресу електронної пошти' />
               <fieldset>
                 <legend>або увійдіть за допомогою:</legend>
                 <button type='button' className='play-button'>Facebook</button>
@@ -26,4 +27,4 @@ class Login extends Component {
     )
   }
 }
-export default Login
+export default Signup
