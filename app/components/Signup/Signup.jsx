@@ -11,7 +11,7 @@ class Signup extends Component {
             <img src='app/components/Login/Images/logo.png' className='logo' alt='logo monopoly' />
             <div className='form__body'>
               <h2 className='form__text'>Реєстрація Профілю</h2>
-              <input type='text' name='username' required placeholder="Введіть ваше ім'я" />
+              <input type='text' name='name' required placeholder="Введіть ваше ім'я" />
               <input type='text' name='username' required placeholder="Введіть ім'я гравця (Нікнейм)" />
               <input type='email' name='email' required placeholder='Введіть адресу електронної пошти' />
               <fieldset>
