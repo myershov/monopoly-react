@@ -13,19 +13,59 @@ class ChatMain extends Component {
             <li className='user-line'>
               <div className='icon' />
               <a href='#' className='nickname'>Віктор Морозов</a>
-              <div className='message'>Lorem ipsum dolor sit</div>
+              <div className='message'>Duis aute irure dolor.</div>
             </li>
             <li className='user-line'>
               <div className='icon' />
               <a href='#' className='nickname'>Аліна Васильєва</a>
-              <div className='message'>Ut enim ad minim veniam, quis nostrud exercitation ullamco</div>
+              <div className='message'>Duis aute irure dolor.</div>
             </li>
             <li className='user-line'>
               <div className='icon' />
               <a href='#' className='nickname'>Тетяна Антонова</a>
-              <div className='message'>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+              <div className='message'>Duis aute irure dolor.</div>
+            </li>
+            <li className='user-line'>
+              <div className='icon' />
+              <a href='#' className='nickname'>Даша Сніжна</a>
+              <div className='message'>Duis aute irure dolor.</div>
+            </li>
+            <li className='user-line'>
+              <div className='icon' />
+              <a href='#' className='nickname'>Cтаніслав Васильченко</a>
+              <div className='message'>Duis aute irure dolor.</div>
+            </li>
+            <li className='user-line'>
+              <div className='icon' />
+              <a href='#' className='nickname'>Тетяна Антонова</a>
+              <div className='message'>Duis aute irure dolor.</div>
+            </li>
+            <li className='user-line'>
+              <div className='icon' />
+              <a href='#' className='nickname'>Віктор Морозов</a>
+              <div className='message'>Duis aute irure dolor.</div>
+            </li>
+            <li className='user-line'>
+              <div className='icon' />
+              <a href='#' className='nickname'>Iван Нестерович</a>
+              <div className='message'>Duis aute irure dolor..</div>
+            </li>
+            <li className='user-line'>
+              <div className='icon' />
+              <a href='#' className='nickname'>Пупкіна Світлана</a>
+              <div className='message'>Duis aute irure dolor.</div>
+            </li>
+            <li className='user-line'>
+              <div className='icon' />
+              <a href='#' className='nickname'>Ганна Сивун</a>
+              <div className='message'>Duis aute irure dolor.</div>
             </li>
           </ul>
+          <div className='message-line'>
+            <div className='user-icon' />
+            <div className='users-message' />
+            <div className='button'>Відправити</div>
+          </div>
         </div>
       </div>
     )

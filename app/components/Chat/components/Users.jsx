@@ -3,7 +3,7 @@ import './Users.styl'
 
 class Users extends Component {
   render () {
-    const newArr = ['Аліна Васильєва', 'Даша Сніжна', 'Віктор Морозов', 'Тетяна Антонова', 'Cтаніслав Васильченко']
+    const newArr = [ 'Аліна Васильєва', 'Даша Сніжна', 'Віктор Морозов', 'Тетяна Антонова', 'Cтаніслав Васильченко', 'Віктор Степанко', 'Пупкіна Світлана', 'Ганна Сивун', 'Iван Нестерович' ]
     return (
       <div className='users-main'>
         <div className='users-header'>
