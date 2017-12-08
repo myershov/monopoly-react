@@ -12,7 +12,7 @@ class Signup extends Component {
             <div className='form__body'>
               <h2 className='form__text'>Реєстрація Профілю</h2>
               <input type='text' name='username' required placeholder="Введіть ваше ім'я" />
-              <input type='text' name='login' required placeholder="Введіть ім'я гравця (Нікнейм)" />
+              <input type='text' name='username' required placeholder="Введіть ім'я гравця (Нікнейм)" />
               <input type='email' name='email' required placeholder='Введіть адресу електронної пошти' />
               <fieldset>
                 <legend>або увійдіть за допомогою:</legend>

@@ -11,7 +11,7 @@ class Login extends Component {
             <img src='app/components/Login/Images/logo.png' className='logo' alt='logo monopoly' />
             <div className='form__body'>
               <h2 className='form__text'>Увійти</h2>
-              <input type='text' name='login' required placeholder="Введіть ім'я гравця (Логін)" />
+              <input type='text' name='username' required placeholder="Введіть ім'я гравця (Логін)" />
               <input type='text' name='password' required placeholder='Введіть пароль' />
               <fieldset>
                 <legend>або увійдіть за допомогою:</legend>
