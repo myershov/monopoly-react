@@ -1,9 +1,8 @@
-var exports = module.exports = {}
 var passport = require('passport')
 var Strategy = require('passport-local').Strategy
 var db = require('./db')
 
-exports.init = function (app, io) {
+module.exports = app => {
   passport.use(new Strategy(
     function (username, password, cb) {
       db.users.findByUsername(username, function (err, user) {
@@ -14,7 +13,7 @@ exports.init = function (app, io) {
       })
     }
   ))
-
+  //
   passport.serializeUser(function (user, cb) {
     cb(null, user.id)
   })
@@ -25,16 +24,20 @@ exports.init = function (app, io) {
       cb(null, user)
     })
   })
-
-  app.use(require('morgan')('combined'))
+  //
+  // app.use(require('morgan')('combined'))
   app.use(require('cookie-parser')())
-  app.use(require('body-parser').urlencoded({ extended: true }))
-  app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }))
+  // app.use(require('body-parser').urlencoded({ extended: true }))
+  // app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }))
   app.use(passport.initialize())
-  app.use(passport.session())
-
-  app.post('/login', passport.authenticate('local', { failureRedirect: '/login' }), function (req, res) {
-    io.emit('save static user information', req.user)
-    res.redirect('/#')
+  // app.use(passport.session())
+  //
+  // app.post('/login', passport.authenticate('local', { failureRedirect: '/login' }), function (req, res) {
+  //   io.emit('save static user information', req.user)
+  //   res.redirect('/#')
+  // })
+  //  passport.authenticate('local', { successRedirect: '/', failureRedirect: '/2login', failureFlash: true })
+  app.post('/login', (req, res) => {
+    res.send({})
   })
 }

@@ -3,13 +3,23 @@ import PropTypes from 'prop-types'
 import './Signup.styl'
 
 class Signup extends Component {
+  state = {
+    password: null,
+    login: null
+  }
   submit = () => {
-    this.props.submit && this.props.submit({login: this.state.login, password: this.state.password})
+    this.props.submit && this.props.submit(this.state)
+  }
+  handleLogin = e => {
+    this.setState({login: e.target.value})
+  }
+  handlePassword = e => {
+    this.setState({password: e.target.value})
   }
   render () {
     const inputs = [
-      <input key='login' type='text' name='username' required placeholder="Введіть ім'я гравця (Нікнейм)" />,
-      <input key='pass' type='password' name='password' required placeholder='Пароль' />
+      <input key='login' type='text' name='username' required placeholder="Введіть ім'я гравця (Нікнейм)" onChange={this.handleLogin} value='jacks' />,
+      <input key='pass' type='password' name='password' required placeholder='Пароль' onChange={this.handlePassword} value='d' />
     ]
     if (!this.props.isAdditionalFieldsHidden) {
       inputs.push(
@@ -19,7 +29,7 @@ class Signup extends Component {
     }
     return (
       <div id='login' className='form__login'>
-        <form action='#' method='post'>
+        <form>
           <img src='app/components/Type/Images/monopoly-brand.png' className='extended__logo' alt='extended logo' />
           <div className='form__wrap'>
             <img src='app/components/Login/Images/logo.png' className='logo' alt='logo monopoly' />
@@ -31,7 +41,7 @@ class Signup extends Component {
                 <button type='button' className='play-button'>Facebook</button>
                 <button type='button' className='play-button'>Twitter</button>
               </fieldset>
-              <button type='submit' className='submit-button' onClick={this.submit}>Долучитися</button>
+              <button type='button' className='submit-button' onClick={this.submit}>Долучитися</button>
             </div>
           </div>
         </form>
