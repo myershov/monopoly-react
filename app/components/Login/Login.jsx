@@ -1,14 +1,15 @@
 import { usersService } from 'project-services'
 import Signup from '.././Signup/Signup.jsx'
 import React, { Component } from 'react'
+// import PropTypes from 'prop-types'
 import './Login.styl'
 
 class Login extends Component {
-  logIn = ({login, password}) => {
-    login
-    password
-    usersService.login().then(res => {
-      res
+  logIn = body => {
+    usersService.login(body).then(user => {
+      if (user && user.id >= 0) {
+        // this.props.router.push(`/dashboard`)
+      }
     })
   }
   render () {
@@ -19,4 +20,7 @@ class Login extends Component {
     )
   }
 }
+// Login.propTypes = {
+//   router: PropTypes.object
+// }
 export default Login

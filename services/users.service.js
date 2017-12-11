@@ -1,9 +1,13 @@
 import mainRequestService from './request.service'
-export const login = () => {
+export const login = body => {
   const url = 'http://localhost:8080/login'
   const options = {
     method: 'POST',
-    body: '{username: "jacks", password: "d"}'
+    headers: {
+      accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
   }
   return mainRequestService(url, options)
 }

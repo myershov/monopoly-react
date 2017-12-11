@@ -4,22 +4,22 @@ import './Signup.styl'
 
 class Signup extends Component {
   state = {
-    password: null,
-    login: null
+    password: '',
+    username: ''
   }
   submit = () => {
     this.props.submit && this.props.submit(this.state)
   }
   handleLogin = e => {
-    this.setState({login: e.target.value})
+    this.setState({username: e.target.value})
   }
   handlePassword = e => {
     this.setState({password: e.target.value})
   }
   render () {
     const inputs = [
-      <input key='login' type='text' name='username' required placeholder="Введіть ім'я гравця (Нікнейм)" onChange={this.handleLogin} value='jacks' />,
-      <input key='pass' type='password' name='password' required placeholder='Пароль' onChange={this.handlePassword} value='d' />
+      <input key='username' type='text' name='username' required placeholder="Введіть ім'я гравця (Нікнейм)" onChange={this.handleLogin} value={this.state.username} />,
+      <input key='pass' type='password' name='password' required placeholder='Пароль' onChange={this.handlePassword} value={this.state.password} />
     ]
     if (!this.props.isAdditionalFieldsHidden) {
       inputs.push(
