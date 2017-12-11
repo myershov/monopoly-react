@@ -7,8 +7,8 @@ const statConf = {
   hash: false
 }
 const alias = {
-  // 'project-components': path.resolve('./components-lib'),
-  'project-services': path.resolve('./services')
+  'project-services': path.resolve('./services'),
+  'store': path.resolve('./app/store')
 }
 module.exports = {
   entry: ['babel-polyfill', './app/main.js'],

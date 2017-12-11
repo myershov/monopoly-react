@@ -1,12 +1,16 @@
 import { Header, GameBoard, Dashboard, Type, Home, Login, Chat, Signup } from './components'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { HashRouter as Router, Route } from 'react-router-dom'
-import { createStore, combineReducers } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import * as reducers from './store/reducers'
 import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom'
+import thunk from 'redux-thunk'
 import React from 'react'
 import './main.styl'
-const store = createStore(combineReducers(reducers))
+const store = createStore(combineReducers(reducers), composeWithDevTools(
+  applyMiddleware(thunk)
+))
 
 ReactDOM.render(
   <Provider store={store}>

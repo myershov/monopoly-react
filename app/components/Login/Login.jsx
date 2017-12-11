@@ -1,13 +1,14 @@
-import { usersService } from 'project-services'
+import { getMy } from 'store/security/actions'
 import Signup from '.././Signup/Signup.jsx'
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import './Login.styl'
 
 class Login extends Component {
   logIn = body => {
-    usersService.login(body).then(user => {
-      if (user && user.id >= 0) {
+    this.props.dispatch(getMy(body)).then(() => {
+      if (this.props.myUser.id >= 0) {
         // this.props.router.push(`/dashboard`)
       }
     })
@@ -20,7 +21,12 @@ class Login extends Component {
     )
   }
 }
-// Login.propTypes = {
-//   router: PropTypes.object
-// }
-export default Login
+Login.propTypes = {
+  // router: PropTypes.object,
+  dispatch: PropTypes.func,
+  myUser: PropTypes.object
+}
+const mapStateToProps = state => ({
+  myUser: state.security.myUser
+})
+export default connect(mapStateToProps)(Login)
