@@ -2,8 +2,8 @@ import Immutable from 'seamless-immutable'
 import * as types from './actionTypes'
 
 const initialState = Immutable({
-  myUserFetching: false,
-  myUser: {}
+  myUser: JSON.parse(localStorage.getItem('myUser')) || {},
+  myUserFetching: false
 })
 
 export default (state = initialState, action = {}) => {

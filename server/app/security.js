@@ -14,4 +14,7 @@ module.exports = app => {
     const cb = user => { user ? res.send(user) : {error: true} }
     findUser(req.body.username, req.body.password, cb)
   })
+  app.get('/auth', (req, res) => {
+    res.send(true)
+  })
 }

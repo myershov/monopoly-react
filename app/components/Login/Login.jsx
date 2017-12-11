@@ -1,5 +1,6 @@
 import { getMy } from 'store/security/actions'
 import Signup from '.././Signup/Signup.jsx'
+import { withRouter } from 'react-router'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -9,7 +10,8 @@ class Login extends Component {
   logIn = body => {
     this.props.dispatch(getMy(body)).then(() => {
       if (this.props.myUser.id >= 0) {
-        // this.props.router.push(`/dashboard`)
+        this.props.history.push('/dashboard')
+        localStorage.setItem('myUser', JSON.stringify(this.props.myUser))
       }
     })
   }
@@ -22,11 +24,11 @@ class Login extends Component {
   }
 }
 Login.propTypes = {
-  // router: PropTypes.object,
+  history: PropTypes.object,
   dispatch: PropTypes.func,
   myUser: PropTypes.object
 }
 const mapStateToProps = state => ({
   myUser: state.security.myUser
 })
-export default connect(mapStateToProps)(Login)
+export default withRouter(connect(mapStateToProps)(Login))

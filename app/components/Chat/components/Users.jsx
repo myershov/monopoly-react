@@ -1,4 +1,7 @@
+import { SmartAvatar } from 'project-components'
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import './Users.styl'
 
 class Users extends Component {
@@ -7,16 +10,16 @@ class Users extends Component {
     return (
       <div className='users-main'>
         <div className='users-header'>
-          <div className='my-icon' />
+          <div className='my-icon'><SmartAvatar /></div>
           <div className='text'>
-            My nickname
+            {this.props.myUser.username}
           </div>
         </div>
         <div className='users-body'>
           <div className='users-body-inner'>
             <div className='counter'><strong>{newArr.length} людей в чаті</strong></div>
             <ul className='user'>
-              {newArr.map((i, key) => <li key={key}><a href='#'>{i}</a></li>)}
+              {newArr.map((i, key) => <li key={key}><SmartAvatar letters={i} /><a href='#'>{i}</a></li>)}
             </ul>
           </div>
         </div>
@@ -24,4 +27,10 @@ class Users extends Component {
     )
   }
 }
-export default Users
+Users.propTypes = {
+  myUser: PropTypes.object
+}
+const mapStateToProps = state => ({
+  myUser: state.security.myUser
+})
+export default connect(mapStateToProps)(Users)

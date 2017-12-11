@@ -1,12 +1,12 @@
-import { usersService } from 'project-services'
+import { securityService } from 'project-services'
 import * as types from './actionTypes'
 
-export function getMy (body) {
+export const getMy = body => {
   return dispatch => {
     return new Promise(resolve => {
       try {
         dispatch({ type: types.SECURITY_GET_MY })
-        usersService.login(body).then(myUser => {
+        securityService.login(body).then(myUser => {
           dispatch({ type: types.SECURITY_GET_MY_SUCCESS, payload: {myUser} })
           resolve()
         })

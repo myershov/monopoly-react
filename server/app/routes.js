@@ -1,5 +1,5 @@
 import gameboard from './gameboard/gameboard.js'
-import autorization from './autorization.js'
+import security from './security.js'
 import bodyParser from 'body-parser'
 
 module.exports = app => {
@@ -12,5 +12,5 @@ module.exports = app => {
     next()
   })
   gameboard(app)
-  autorization(app)
+  security(app)
 }

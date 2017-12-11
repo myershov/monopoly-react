@@ -7,6 +7,7 @@ const statConf = {
   hash: false
 }
 const alias = {
+  'project-components': path.resolve('./components'),
   'project-services': path.resolve('./services'),
   'store': path.resolve('./app/store')
 }
