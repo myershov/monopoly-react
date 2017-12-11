@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import './Header.styl'
 
 class Header extends Component {
   render () {
+    this.props.myUser
     return (
       <div className='monopoly-header'>
         <div className='monopoly-header-inner'>
@@ -27,4 +30,10 @@ class Header extends Component {
     )
   }
 }
-export default Header
+Header.propTypes = {
+  myUser: PropTypes.object
+}
+const mapStateToProps = state => ({
+  myUser: state.security.myUser
+})
+export default connect(mapStateToProps)(Header)
