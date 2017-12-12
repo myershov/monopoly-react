@@ -1,6 +1,8 @@
 import { GameBoardCell, CenterBlock } from './components'
-import { gameboardService } from 'project-services'
+import { getGameboard } from 'store/gameboard/actions'
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import io from 'socket.io-client'
 import './GameBoard.styl'
 
@@ -16,9 +18,7 @@ class GameBoard extends Component {
     ]
   }
   componentDidMount () {
-    gameboardService().then(res => {
-      this.setState(res)
-    })
+    this.props.dispatch(getGameboard())
     socket.on('set tip position', newInfo => {
       this.setState({moveOfPlayer: newInfo.moveOfPlayer, players: newInfo.players})
     })
@@ -28,7 +28,7 @@ class GameBoard extends Component {
   }
   render () {
     const renderCells = (i, key) => <GameBoardCell {...i} key={key} players={this.state.players} />
-    const { top = [], right = [], bottom = [], left = [] } = this.state
+    const { top, right, bottom, left } = this.props.gameboard
     return (
       <div className='wrapper'>
         <div className='gameboard'>
@@ -44,4 +44,11 @@ class GameBoard extends Component {
     )
   }
 }
-export default GameBoard
+GameBoard.propTypes = {
+  gameboard: PropTypes.object,
+  dispatch: PropTypes.func
+}
+const mapStateToProps = state => ({
+  gameboard: state.gameboard.gameboard
+})
+export default connect(mapStateToProps)(GameBoard)
