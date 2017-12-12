@@ -3,7 +3,8 @@ import * as types from './actionTypes'
 
 const initialState = Immutable({
   gameboard: { top: [], right: [], bottom: [], left: [] },
-  gameboardFetching: false
+  gameboardFetching: false,
+  gameInfo: { players: [] }
 })
 
 export default (state = initialState, action = {}) => {
@@ -21,6 +22,16 @@ export default (state = initialState, action = {}) => {
     return state.merge({
       gameboard: { top: [], right: [], bottom: [], left: [] }
     })
+
+  case types.GET_PLAYERS_SUCCESS:
+    return state.merge({
+      gameInfo: action.payload.gameInfo
+    })
+  case types.GET_PLAYERS_ERROR:
+    return state.merge({
+      gameInfo: { }
+    })
+
   default:
     return state
   }

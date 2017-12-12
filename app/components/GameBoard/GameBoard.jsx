@@ -1,33 +1,20 @@
+import { getGameboard, getPlayers, changeTipPositions } from 'store/gameboard/actions'
 import { GameBoardCell, CenterBlock } from './components'
-import { getGameboard } from 'store/gameboard/actions'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import io from 'socket.io-client'
 import './GameBoard.styl'
 
-const socket = io('http://localhost:8080')
-
 class GameBoard extends Component {
-  state = {
-    totalPlayers: 2,
-    moveOfPlayer: 0,
-    players: [
-      {name: 'Dima', id: 0, currentPostions: 0},
-      {name: 'My', id: 1, currentPostions: 0}
-    ]
-  }
   componentDidMount () {
     this.props.dispatch(getGameboard())
-    socket.on('set tip position', newInfo => {
-      this.setState({moveOfPlayer: newInfo.moveOfPlayer, players: newInfo.players})
-    })
+    this.props.dispatch(getPlayers())
   }
   changeTipPositions = () => {
-    socket.emit('change tip position', this.state.moveOfPlayer)
+    this.props.dispatch(changeTipPositions())
   }
   render () {
-    const renderCells = (i, key) => <GameBoardCell {...i} key={key} players={this.state.players} />
+    const renderCells = (i, key) => <GameBoardCell {...i} key={key} players={this.props.gameInfo.players} />
     const { top, right, bottom, left } = this.props.gameboard
     return (
       <div className='wrapper'>
@@ -46,9 +33,11 @@ class GameBoard extends Component {
 }
 GameBoard.propTypes = {
   gameboard: PropTypes.object,
+  gameInfo: PropTypes.object,
   dispatch: PropTypes.func
 }
 const mapStateToProps = state => ({
-  gameboard: state.gameboard.gameboard
+  gameboard: state.gameboard.gameboard,
+  gameInfo: state.gameboard.gameInfo
 })
 export default connect(mapStateToProps)(GameBoard)

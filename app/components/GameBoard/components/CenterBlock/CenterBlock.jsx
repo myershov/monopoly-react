@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import './CenterBlock.styl'
 
@@ -13,16 +14,19 @@ class CenterBlock extends Component {
           <button className='controls_button' type='button'>Журнал Гри</button>
         </fieldset>
         <div className='players_field'>
-          <div className='player'><div className='player_output'>Player1 / 10000$</div><div className='player_btn' >&gt;</div></div>
-          <div className='player'><div className='player_output'>Player1 / 10000$</div><div className='player_btn' >&gt;</div></div>
-          <div className='player'><div className='player_output'>Player1 / 10000$</div><div className='player_btn' >&gt;</div></div>
-          <div className='player'><div className='player_output'>Player1 / 10000$</div><div className='player_btn' >&gt;</div></div>
+          {this.props.gameInfo.players.map(i => (
+            <div className='player'><div className='player_output'>{i.name} / {i.gold}$</div><div className='player_btn' >&gt;</div></div>
+          ))}
         </div>
       </div>
     )
   }
 }
 CenterBlock.propTypes = {
-  changeTipPositions: PropTypes.func
+  changeTipPositions: PropTypes.func,
+  gameInfo: PropTypes.object
 }
-export default CenterBlock
+const mapStateToProps = state => ({
+  gameInfo: state.gameboard.gameInfo
+})
+export default connect(mapStateToProps)(CenterBlock)
