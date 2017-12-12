@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import io from 'socket.io-client'
 import './Chat.styl'
-import Users from './components/Users.jsx'
 import ChatMain from './components/ChatMain.jsx'
+import Users from './components/Users.jsx'
 
 const socket = io('http://localhost:8080')
 
