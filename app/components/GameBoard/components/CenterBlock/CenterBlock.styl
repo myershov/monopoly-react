@@ -1,6 +1,7 @@
 .game_panel
   display flex
   flex-direction column
+  padding 3rem 7rem
   align-items center
   .extended__logo
     width 300px
@@ -13,22 +14,24 @@
     background-color white
     border none
     border-radius 0.3rem
-    font-weight: bold
+    font-weight bold
     &:hover
       background-color #929FAA
   .buttons_box
-    padding-top: 4rem
+    padding-top 4rem
 
   .players_field
     display flex
-    flex-flow: row wrap
+    flex-flow row wrap
+    justify-content space-between
+    padding-top 2rem
     .player
       display flex
-      border: 2px solid #435D79
-      line-height: 3.5rem
-      width 21rem
+      border 2px solid #435D79
+      line-height 3.5rem
+      margin .5rem 0
       &_output
-        width 17rem
+        width 19rem
         height 3.5rem
         padding-left 1rem
       &_btn

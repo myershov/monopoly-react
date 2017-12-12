@@ -12,12 +12,12 @@ class CenterBlock extends Component {
           <button className='controls_button' type='button'>Банк</button>
           <button className='controls_button' type='button'>Журнал Гри</button>
         </fieldset>
-        <fieldset className='players_field'>
+        <div className='players_field'>
           <div className='player'><div className='player_output'>Player1 / 10000$</div><div className='player_btn' >&gt;</div></div>
           <div className='player'><div className='player_output'>Player1 / 10000$</div><div className='player_btn' >&gt;</div></div>
           <div className='player'><div className='player_output'>Player1 / 10000$</div><div className='player_btn' >&gt;</div></div>
           <div className='player'><div className='player_output'>Player1 / 10000$</div><div className='player_btn' >&gt;</div></div>
-        </fieldset>
+        </div>
       </div>
     )
   }
