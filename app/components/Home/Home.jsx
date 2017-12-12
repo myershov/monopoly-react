@@ -10,6 +10,7 @@ class Home extends Component {
         <Link to='/login'>login</Link><br /><br />
         <Link to='/gameboard'>gameboard</Link><br /><br />
         <Link to='/type'>type</Link><br /><br />
+        <Link to='/gamelist'>gamelist</Link><br /><br />
         <Link to='/chat'>chat</Link><br /><br />
       </div>
     )
