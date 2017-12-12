@@ -26,21 +26,6 @@ class ChatMain extends Component {
         </div>
         <div className='chatmain-body'>
           <ul className='chat-list'>
-            <li className='user-line'>
-              <div className='icon' />
-              <a href='#' className='nickname'><SmartAvatar letters='Віктор Морозов' /></a>
-              <div className='message'>Duis aute irure dolor.</div>
-            </li>
-            <li className='user-line'>
-              <div className='icon' />
-              <a href='#' className='nickname'><SmartAvatar letters='Аліна фівфів' /></a>
-              <div className='message'>Duis aute irure dolor.</div>
-            </li>
-            <li className='user-line'>
-              <div className='icon' />
-              <a href='#' className='nickname'><SmartAvatar letters='Тетяна Антонова' /></a>
-              <div className='message'>Duis aute irure dolor.</div>
-            </li>
             {this.props.messages.map((i, key) => (
               <li key={key} className='user-line'>
                 <div className='icon'><SmartAvatar /></div>
