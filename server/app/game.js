@@ -1,10 +1,17 @@
-var exports = module.exports = {}
-
-exports.init = function (socket, io, gameInfo) {
-  socket.on('prepare game', function (users) {
+import standart from './gameboard/standart.js'
+const game = (socket, io, gameInfo) => {
+  let testObject = {
+    totalPlayers: 2,
+    moveOfPlayer: 0,
+    players: [
+      {name: 'Dima', id: 0, currentPostions: 0},
+      {name: 'My', id: 1, currentPostions: 0}
+    ]
+  }
+  socket.on('prepare game', users => {
     io.emit('begin game', users)
   })
-  socket.on('sent static info', function (fields, users, newUserName) {
+  socket.on('sent static info', (fields, users, newUserName) => {
     var i
     var l
     var userNew = true
@@ -22,15 +29,21 @@ exports.init = function (socket, io, gameInfo) {
 
     io.emit('list of users', gameInfo.usersList)
   })
-  socket.on('get new user place', function (currentUserPos, moveOfPlayer) {
-    var randomResult = Math.floor((Math.random() * 6) + 1)
-    currentUserPos += randomResult
-    if (currentUserPos >= gameInfo.fieldsLen) {
-      currentUserPos -= gameInfo.fieldsLen
+  socket.on('change tip position', moveOfPlayer => {
+    let { players, totalPlayers } = testObject
+    let player = players[moveOfPlayer]
+    const random = Math.floor((Math.random() * 6) + 1)
+    const maxId = standart.left[standart.left.length - 1].id
+    player.currentPostions = player.currentPostions + random
+    if (player.currentPostions > maxId) {
+      player.currentPostions -= maxId + 1
     }
-    if (++moveOfPlayer === gameInfo.usersLen) {
+    moveOfPlayer++
+    if (moveOfPlayer === totalPlayers) {
       moveOfPlayer = 0
     }
-    io.emit('get new user place', { currentUserPos: currentUserPos, moveOfPlayer: moveOfPlayer })
+    io.emit('set tip position', { moveOfPlayer, players })
   })
 }
+
+module.exports = game

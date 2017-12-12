@@ -1,6 +1,7 @@
 import routes from './app/routes.js'
 import socketio from 'socket.io'
 import chat from './app/chat.js'
+import game from './app/game.js'
 import express from 'express'
 import http from 'http'
 
@@ -13,7 +14,7 @@ app.use(express.static(__dirname))
 routes(app)
 io.on('connection', socket => {
   chat(socket, io)
-  // require('./app/game.js').init(socket, io, gameInfo)
+  game(socket, io)
   // require('./app/createGame.js').init(socket, io, gameInfo)
   // require('./app/getGameList.js').init(socket, io, gameInfo)
 })
