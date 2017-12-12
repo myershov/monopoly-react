@@ -10,10 +10,10 @@ const top = [
   {orientation: 'gorizontal', text: 'bar', id: 8},
   {orientation: 'gorizontal', text: 'restaurant', id: 9},
   {orientation: 'gorizontal', text: 'cafeteria', id: 10},
-  {orientation: 'gorizontal', text: 'cafeteria2', id: 11},
-  {orientation: 'gorizontal', text: 'cafeteria3', id: 12},
-  {orientation: 'gorizontal', text: 'cafeteria4', id: 13},
-  {orientation: 'main-block', text: 'CHECK', id: 14}
+  {orientation: 'gorizontal', text: 'cafeteria2', id: 11, options: {type: 'bonus', gold: 2500}},
+  {orientation: 'gorizontal', text: 'cafeteria3', id: 12, options: {type: 'bonus', gold: -3500}},
+  {orientation: 'gorizontal', text: 'cafeteria4', id: 13, options: {type: 'bonus', gold: -3500}},
+  {orientation: 'main-block', text: 'BONUS', id: 14, options: {type: 'bonus', gold: 2500}}
 ]
 const right = [
   {orientation: 'vertical', text: 'museum', id: 15},

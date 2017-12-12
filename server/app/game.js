@@ -1,4 +1,10 @@
 import standart from './gameboard/standart.js'
+const allCellIds = {}
+Object.keys(standart).forEach(prop => {
+  standart[prop].forEach(cell => {
+    allCellIds[cell.id] = cell
+  })
+})
 const game = (socket, io) => {
   let testObject = {
     totalPlayers: 2,
@@ -23,6 +29,12 @@ const game = (socket, io) => {
     if (player.currentPostions > maxId) {
       player.currentPostions -= maxId + 1
       player.gold += 2000
+    }
+    if (allCellIds[player.currentPostions].options) {
+      const cell = allCellIds[player.currentPostions].options
+      if (cell.type === 'bonus') {
+        player.gold += cell.gold
+      }
     }
     testObject.moveOfPlayer++
     if (testObject.moveOfPlayer === totalPlayers) {
