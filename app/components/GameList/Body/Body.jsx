@@ -47,6 +47,7 @@ class Body extends Component {
           </div>
           <div className='gamelist-subcontent'>
             <div className='gamelist-subcontent__host'>
+              sakdjla
             </div>
             <div className='gamelist-subcontent__info'>
             </div>
