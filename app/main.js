@@ -1,4 +1,4 @@
-import { Header, GameBoard, Dashboard, GameList, Type, Home, Login, Chat, Signup } from './components'
+import { Header, GameBoard, Dashboard, GameList, Type, Home, Login, Chat, Signup, Pregame } from './components'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { HashRouter as Router, Route } from 'react-router-dom'
 import { composeWithDevTools } from 'redux-devtools-extension'
@@ -25,6 +25,7 @@ ReactDOM.render(
         <Route exact path='/gamelist' component={GameList} />
         <Route exact path='/type' component={Type} />
         <Route exact path='/chat' component={Chat} />
+        <Route exact path='/pregame' component={Pregame} />
       </div>
     </Router>
   </Provider>,

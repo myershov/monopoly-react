@@ -12,6 +12,7 @@ class Home extends Component {
         <Link to='/type'>type</Link><br /><br />
         <Link to='/gamelist'>gamelist</Link><br /><br />
         <Link to='/chat'>chat</Link><br /><br />
+        <Link to='/pregame'>pregame</Link><br /><br />
       </div>
     )
   }

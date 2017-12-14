@@ -7,6 +7,7 @@ import Login from './Login/Login.jsx'
 import Type from './Type/Type.jsx'
 import Home from './Home/Home.jsx'
 import Chat from './Chat/Chat.jsx'
+import Pregame from './Pregame/Pregame.jsx'
 
 export {
   Dashboard,
@@ -17,5 +18,6 @@ export {
   Login,
   Home,
   Chat,
-  Type
+  Type,
+  Pregame
 }
