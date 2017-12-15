@@ -21,20 +21,16 @@ class Body extends Component {
             <div className='player-acc'>
               <div className='icon' />
               <div className='player-info'>
-                <div className='player-counter' />
-                <div className='level-counter' />
+                <div className='player-counter'>Player 1</div>
+                <div className='level-counter'>Level 5-<strong>host</strong></div>
               </div>
-              <div className='level' />
-              <div className='button-delete' />
-            </div>
-            <div className='player-acc'>
-              <div className='icon' />
-              <div className='player-info'>
-                <div className='player-counter' />
-                <div className='level-counter' />
+              <div className='levels'>
+                <div className='level' />
+                <div className='level' />
+                <div className='level' />
+                <div className='level' />
               </div>
-              <div className='level' />
-              <div className='button-delete' />
+              <div className='button-remove'>X</div>
             </div>
           </div>
           <div className='button'>Почати Гру</div>
