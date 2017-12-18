@@ -14,6 +14,27 @@ const game = (socket, io) => {
       {name: 'My', id: 1, currentPostions: 0, gold: 200000}
     ]
   }
+  const submitBeforeBuy = () => {
+    io.emit('submit before buy', testObject)
+  }
+  const changePlayer = () => {
+    let { totalPlayers } = testObject
+    testObject.moveOfPlayer++
+    if (testObject.moveOfPlayer === totalPlayers) {
+      testObject.moveOfPlayer = 0
+    }
+    io.emit('set tip position', testObject)
+  }
+  socket.on('submitted buy', isSubmitted => {
+    if (isSubmitted) {
+      let { players } = testObject
+      let player = players[testObject.moveOfPlayer]
+      let cell = allCellIds[player.currentPostions].options
+      cell.owner = player.name
+      player.gold -= cell.gold
+    }
+    changePlayer()
+  })
   socket.on('prepare game', users => {
     io.emit('begin game', users)
   })
@@ -21,9 +42,9 @@ const game = (socket, io) => {
     io.emit('set players info', testObject)
   })
   socket.on('change tip position', () => {
-    let { players, totalPlayers } = testObject
+    let { players } = testObject
     let player = players[testObject.moveOfPlayer]
-    const random = Math.floor((Math.random() * 6) + 1)
+    const random = 1 // Math.floor((Math.random() * 6) + 1)
     const maxId = standart.left[standart.left.length - 1].id
     player.currentPostions = player.currentPostions + random
     if (player.currentPostions > maxId) {
@@ -32,15 +53,14 @@ const game = (socket, io) => {
     }
     if (allCellIds[player.currentPostions].options) {
       const cell = allCellIds[player.currentPostions].options
-      if (cell.type === 'bonus') {
+      if (cell.type === 'bonus' || cell.type === 'chest') {
         player.gold += cell.gold
       }
+      if (cell.type === 'buy' && !cell.owner) {
+        submitBeforeBuy()
+      }
     }
-    testObject.moveOfPlayer++
-    if (testObject.moveOfPlayer === totalPlayers) {
-      testObject.moveOfPlayer = 0
-    }
-    io.emit('set tip position', testObject)
+    changePlayer()
   })
 }
 

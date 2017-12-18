@@ -1,8 +1,8 @@
 const top = [
   {orientation: 'main-block', text: 'START', id: 0},
-  {orientation: 'gorizontal', text: 'museum', id: 1},
-  {orientation: 'gorizontal', text: 'mueseum2', id: 2},
-  {orientation: 'gorizontal', text: 'shop', id: 3},
+  {orientation: 'gorizontal', text: 'Kyiv avenue', id: 1, options: {type: 'buy', owner: null, gold: 2500}},
+  {orientation: 'gorizontal', text: 'Community chest', id: 2, options: {type: 'chest', gold: -3500}},
+  {orientation: 'gorizontal', text: 'My avenue', id: 3, options: {type: 'buy', owner: null, gold: 2500}},
   {orientation: 'gorizontal', text: 'supermarket', id: 4},
   {orientation: 'gorizontal', text: 'mall', id: 5},
   {orientation: 'gorizontal', text: 'police', id: 6},

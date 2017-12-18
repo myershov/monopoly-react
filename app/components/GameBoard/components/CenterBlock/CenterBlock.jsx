@@ -15,7 +15,7 @@ class CenterBlock extends Component {
         </fieldset>
         <div className='players_field'>
           {this.props.gameInfo.players.map(i => (
-            <div className='player'><div className='player_output'>{i.name} / {i.gold}$</div><div className='player_btn' >&gt;</div></div>
+            <div className='player' key={i.name}><div className='player_output'>{i.name} / {i.gold}$</div><div className='player_btn' >&gt;</div></div>
           ))}
         </div>
       </div>
