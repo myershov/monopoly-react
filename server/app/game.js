@@ -10,12 +10,12 @@ const game = (socket, io) => {
     totalPlayers: 2,
     moveOfPlayer: 0,
     players: [
-      {name: 'Dima', id: 0, currentPostions: 0, gold: 200000},
-      {name: 'My', id: 1, currentPostions: 0, gold: 200000}
+      {name: 'Dima', id: 0, currentPostions: 0, gold: 200000, owns: {}},
+      {name: 'My', id: 1, currentPostions: 0, gold: 200000, owns: {}}
     ]
   }
   const submitBeforeBuy = () => {
-    io.emit('submit before buy', testObject)
+    io.emit('submit before buy')
   }
   const changePlayer = () => {
     let { totalPlayers } = testObject
@@ -30,8 +30,8 @@ const game = (socket, io) => {
       let { players } = testObject
       let player = players[testObject.moveOfPlayer]
       let cell = allCellIds[player.currentPostions].options
-      cell.owner = player.name
       player.gold -= cell.gold
+      player.owns[player.currentPostions] = true
     }
     changePlayer()
   })
@@ -56,8 +56,9 @@ const game = (socket, io) => {
       if (cell.type === 'bonus' || cell.type === 'chest') {
         player.gold += cell.gold
       }
-      if (cell.type === 'buy' && !cell.owner) {
+      if (cell.type === 'buy' && !players.some(i => i.owns[player.currentPostions])) {
         submitBeforeBuy()
+        return false
       }
     }
     changePlayer()

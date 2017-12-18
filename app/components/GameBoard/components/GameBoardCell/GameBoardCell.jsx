@@ -4,8 +4,14 @@ import './GameBoardCell.styl'
 
 class GameBoardCell extends Component {
   getColor = () => {
-    if (this.props.options && this.props.players.length > 0 && this.props.options.owner === this.props.players[0].name) {
-      return ' green'
+    for (let i = 0, l = this.props.players.length; i < l; i++) {
+      const owns = this.props.players[i].owns[this.props.id]
+      if (owns && i === 0) {
+        return ' red'
+      }
+      if (owns && i === 1) {
+        return ' green'
+      }
     }
     return ''
   }
@@ -20,7 +26,6 @@ class GameBoardCell extends Component {
 }
 GameBoardCell.propTypes = {
   orientation: PropTypes.string,
-  options: PropTypes.object,
   players: PropTypes.array,
   id: PropTypes.number,
   text: PropTypes.any

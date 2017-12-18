@@ -3,8 +3,9 @@ import * as types from './actionTypes'
 
 const initialState = Immutable({
   gameboard: { top: [], right: [], bottom: [], left: [] },
+  gameInfo: { players: [] },
   gameboardFetching: false,
-  gameInfo: { players: [] }
+  isSubmitRequired: false
 })
 
 export default (state = initialState, action = {}) => {
@@ -30,6 +31,11 @@ export default (state = initialState, action = {}) => {
   case types.GET_PLAYERS_ERROR:
     return state.merge({
       gameInfo: { }
+    })
+
+  case types.GET_CONFIRMATION_BEFORE_BUY_SUCCESS:
+    return state.merge({
+      isSubmitRequired: action.payload.isSubmitRequired
     })
 
   default:

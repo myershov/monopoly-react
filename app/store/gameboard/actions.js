@@ -49,3 +49,24 @@ export const changeTipPositions = () => {
     })
   }
 }
+export const getConfirmationBeforeBuy = () => {
+  return dispatch => {
+    try {
+      socket.on('submit before buy', () => {
+        dispatch({ type: types.GET_CONFIRMATION_BEFORE_BUY_SUCCESS, payload: {isSubmitRequired: true} })
+      })
+    } catch (err) {
+      dispatch({ type: types.GET_CONFIRMATION_BEFORE_BUY_SUCCESS, payload: {isSubmitRequired: false} })
+    }
+  }
+}
+export const submittedBuy = isSubmitted => {
+  return dispatch => {
+    try {
+      socket.emit('submitted buy', isSubmitted)
+      dispatch({ type: types.GET_CONFIRMATION_BEFORE_BUY_SUCCESS, payload: {isSubmitRequired: false} })
+    } catch (err) {
+      dispatch({ type: types.GET_CONFIRMATION_BEFORE_BUY_SUCCESS, payload: {isSubmitRequired: false} })
+    }
+  }
+}
