@@ -3,6 +3,7 @@ import './Body.styl'
 
 class Body extends Component {
   render () {
+    const newArr = ['Player 1', 'Player 2', 'Player 3']
     return (
       <div>
         <div className='pregame-logo'>
@@ -18,20 +19,22 @@ class Body extends Component {
             <div className='players-amount'>Відкрита для 5 гравців</div>
           </div>
           <div className='players-acc'>
-            <div className='player-acc'>
-              <div className='icon' />
-              <div className='player-info'>
-                <div className='player-counter'>Player 1</div>
-                <div className='level-counter'>Level 5-<strong>host</strong></div>
+            {newArr.map((player, key) => (
+              <div key={key} className='player-acc'>
+                <div className='icon' />
+                <div className='player-info'>
+                  <div className='player-counter'>{player}</div>
+                  <div className='level-counter'>Level 5-<strong>host</strong></div>
+                </div>
+                <div className='levels'>
+                  <div className='level' />
+                  <div className='level' />
+                  <div className='level' />
+                  <div className='level' />
+                </div>
+                <div className='button-remove'>X</div>
               </div>
-              <div className='levels'>
-                <div className='level' />
-                <div className='level' />
-                <div className='level' />
-                <div className='level' />
-              </div>
-              <div className='button-remove'>X</div>
-            </div>
+            ))}
           </div>
           <div className='button'>Почати Гру</div>
         </div>
