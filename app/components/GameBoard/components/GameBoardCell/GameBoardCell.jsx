@@ -4,16 +4,8 @@ import './GameBoardCell.styl'
 
 class GameBoardCell extends Component {
   getColor = () => {
-    for (let i = 0, l = this.props.players.length; i < l; i++) {
-      const owns = this.props.players[i].owns[this.props.id]
-      if (owns && i === 0) {
-        return ' red'
-      }
-      if (owns && i === 1) {
-        return ' green'
-      }
-    }
-    return ''
+    const player = this.props.players.find(player => player.owns[this.props.id])
+    return player ? ` busy-cell-player${player.id}` : ''
   }
   render () {
     return (
