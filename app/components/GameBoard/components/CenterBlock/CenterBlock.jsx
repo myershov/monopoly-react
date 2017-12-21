@@ -29,7 +29,22 @@ class CenterBlock extends Component {
             ))}
           </div>
         </div>
-        <div className='game_panel-right' />
+        <div className='game_panel-right'>
+          <div className='new_message'>***</div>
+          <div className='text'>Хід гравця My</div>
+          <div className='new_message'>***</div>
+          <div className='text'>My придбав Вrewery</div>
+          <div className='new_message'>***</div>
+          <div className='text'>Хід гравця Dima</div>
+          <div className='new_message'>***</div>
+          <div className='text'>Dima придбав Lviv Theatre of Opera and Ballet</div>
+          <div className='new_message'>***</div>
+          <div className='text'>Хід гравця My</div>
+          <div className='new_message'>***</div>
+          <div className='text'>My придбав Volodymyrska Street</div>
+          <div className='new_message'>***</div>
+          <div className='text'>Хід гравця Dima</div>
+        </div>
       </div>
     )
   }
