@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import './CenterBlock.styl'
+import Journal from './Journal.jsx'
 
 class CenterBlock extends Component {
   componentDidMount () {
@@ -29,22 +30,7 @@ class CenterBlock extends Component {
             ))}
           </div>
         </div>
-        <div className='game_panel-right'>
-          <div className='new_message'>***</div>
-          <div className='text'>Хід гравця My</div>
-          <div className='new_message'>***</div>
-          <div className='text'>My придбав Вrewery</div>
-          <div className='new_message'>***</div>
-          <div className='text'>Хід гравця Dima</div>
-          <div className='new_message'>***</div>
-          <div className='text'>Dima придбав Lviv Theatre of Opera and Ballet</div>
-          <div className='new_message'>***</div>
-          <div className='text'>Хід гравця My</div>
-          <div className='new_message'>***</div>
-          <div className='text'>My придбав Volodymyrska Street</div>
-          <div className='new_message'>***</div>
-          <div className='text'>Хід гравця Dima</div>
-        </div>
+        <Journal />
       </div>
     )
   }
