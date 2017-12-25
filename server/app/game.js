@@ -14,25 +14,30 @@ const game = (socket, io) => {
       {name: 'My', id: 1, currentPostions: 0, gold: 200000, owns: {}}
     ]
   }
+  const fillJournal = message => {
+    io.sockets.emit('update history', message)
+  }
   const submitBeforeBuy = () => {
     io.emit('submit before buy')
   }
   const changePlayer = () => {
-    let { totalPlayers } = testObject
+    let { totalPlayers, players } = testObject
     testObject.moveOfPlayer++
     if (testObject.moveOfPlayer === totalPlayers) {
       testObject.moveOfPlayer = 0
     }
-    io.sockets.emit('update history', 'asdfsadfasdf')
+    fillJournal(`Move of player ${players[testObject.moveOfPlayer].name}`)
     io.emit('set tip position', testObject)
   }
   socket.on('submitted buy', isSubmitted => {
     if (isSubmitted) {
       let { players } = testObject
       let player = players[testObject.moveOfPlayer]
-      let cell = allCellIds[player.currentPostions].options
-      player.gold -= cell.gold
+      let cell = allCellIds[player.currentPostions]
+      player.gold -= cell.options.gold
       player.owns[player.currentPostions] = true
+      fillJournal(`Player ${player.name} bought ${cell.text}`)
+      fillJournal(`Player ${player.name} has new gold amount: ${player.gold}`)
     }
     changePlayer()
   })
@@ -51,11 +56,13 @@ const game = (socket, io) => {
     if (player.currentPostions > maxId) {
       player.currentPostions -= maxId + 1
       player.gold += 2000
+      fillJournal(`Player ${player.name} has new gold amount: ${player.gold}`)
     }
     if (allCellIds[player.currentPostions].options) {
       const cell = allCellIds[player.currentPostions].options
       if (cell.type === 'bonus' || cell.type === 'chest') {
         player.gold += cell.gold
+        fillJournal(`Player ${player.name} has new gold amount: ${player.gold}`)
       }
       if (cell.type === 'buy' && !players.some(i => i.owns[player.currentPostions])) {
         submitBeforeBuy()

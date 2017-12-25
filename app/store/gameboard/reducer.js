@@ -5,7 +5,8 @@ const initialState = Immutable({
   gameboard: { top: [], right: [], bottom: [], left: [] },
   gameInfo: { players: [] },
   gameboardFetching: false,
-  isSubmitRequired: false
+  isSubmitRequired: false,
+  playerHistory: []
 })
 
 export default (state = initialState, action = {}) => {
@@ -26,7 +27,7 @@ export default (state = initialState, action = {}) => {
 
   case types.UPDATE_PLAYER_HISTORY:
     return state.merge({
-      playerHistory: action.payload.playerHistory
+      playerHistory: [...state.playerHistory, action.payload.playerHistory]
     })
 
   case types.GET_PLAYERS_SUCCESS:

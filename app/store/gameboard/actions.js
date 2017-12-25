@@ -34,16 +34,20 @@ export const getPlayers = () => {
     })
   }
 }
+
+export const listenerOnJournalChanges = () => {
+  return dispatch => {
+    socket.on('update history', playerHistory => {
+      dispatch({ type: types.UPDATE_PLAYER_HISTORY, payload: {playerHistory} })
+    })
+  }
+}
 export const changeTipPositions = () => {
   return dispatch => {
     return new Promise(() => {
       try {
         socket.on('set tip position', gameInfo => {
           dispatch({ type: types.GET_PLAYERS_SUCCESS, payload: {gameInfo} })
-        })
-        socket.on('update history', playerHistory => {
-          debugger
-          dispatch({ type: types.UPDATE_PLAYER_HISTORY, payload: {playerHistory} })
         })
         dispatch({ type: types.GET_PLAYERS })
         socket.emit('change tip position')
