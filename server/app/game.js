@@ -23,6 +23,7 @@ const game = (socket, io) => {
     if (testObject.moveOfPlayer === totalPlayers) {
       testObject.moveOfPlayer = 0
     }
+    io.sockets.emit('update history', 'asdfsadfasdf')
     io.emit('set tip position', testObject)
   }
   socket.on('submitted buy', isSubmitted => {

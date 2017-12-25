@@ -24,6 +24,11 @@ export default (state = initialState, action = {}) => {
       gameboard: { top: [], right: [], bottom: [], left: [] }
     })
 
+  case types.UPDATE_PLAYER_HISTORY:
+    return state.merge({
+      playerHistory: action.payload.playerHistory
+    })
+
   case types.GET_PLAYERS_SUCCESS:
     return state.merge({
       gameInfo: action.payload.gameInfo
