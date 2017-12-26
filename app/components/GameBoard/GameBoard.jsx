@@ -1,4 +1,4 @@
-import { getGameboard, getPlayers, changeTipPositions } from 'store/gameboard/actions'
+import { getGameboard, getPlayers, changeTipPositions, listenerOnNewTipPosition } from 'store/gameboard/actions'
 import { GameBoardCell, CenterBlock } from './components'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -7,6 +7,7 @@ import './GameBoard.styl'
 
 class GameBoard extends Component {
   componentDidMount () {
+    this.props.dispatch(listenerOnNewTipPosition())
     this.props.dispatch(getGameboard())
     this.props.dispatch(getPlayers())
   }

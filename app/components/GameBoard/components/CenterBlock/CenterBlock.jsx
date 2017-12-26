@@ -1,4 +1,4 @@
-import { submittedBuy, getConfirmationBeforeBuy } from 'store/gameboard/actions'
+import { submitBuy, listenerOnConfirmationBeforeBuy } from 'store/gameboard/actions'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -7,12 +7,12 @@ import Journal from './Journal.jsx'
 
 class CenterBlock extends Component {
   componentDidMount () {
-    this.props.dispatch(getConfirmationBeforeBuy())
+    this.props.dispatch(listenerOnConfirmationBeforeBuy())
   }
   componentWillReceiveProps (newProp) {
     if (newProp.isSubmitRequired) {
       const res = window.confirm('Are you sure you want to buy?')
-      this.props.dispatch(submittedBuy(res))
+      this.props.dispatch(submitBuy(res))
     }
   }
   render () {
@@ -37,7 +37,6 @@ class CenterBlock extends Component {
 }
 CenterBlock.propTypes = {
   changeTipPositions: PropTypes.func,
-  isSubmitRequired: PropTypes.bool,
   gameInfo: PropTypes.object,
   dispatch: PropTypes.func
 }
